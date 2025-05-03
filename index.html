@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zyora | All-Natural Living</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #2e7d32;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1650&q=80') center/cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      background-color: rgba(0,0,0,0.5);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #2e7d32;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .product {
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .product h4 {
+      margin: 1rem 0 0.5rem;
+      color: #555;
+    }
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zyora</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>All-Natural Products for a Healthier You</h2>
+  </section>
+
+  <section class="section" id="shop">
+    <h3>Featured Products</h3>
+    <div class="products">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Product 1">
+        <h4>Organic Aloe Vera Gel</h4>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Product 2">
+        <h4>Herbal Tea Blend</h4>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Product 3">
+        <h4>Natural Face Scrub</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h3>About Zyora</h3>
+    <p>Zyora is your trusted source for natural, clean, and consciously curated products that are kind to your body and the planet. Our mission is to bring wellness into your everyday life through mindful brands and ethical choices.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: hello@zyora.com</p>
+    <p>Instagram: @shopzyora</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zyora. All rights reserved.</p>
+  </footer>
+</body>
+</html>
