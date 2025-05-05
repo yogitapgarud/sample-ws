@@ -68,12 +68,45 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    /* Cart Styles */
+    .cart-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .cart-dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cart-dropdown ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-dropdown li {
+      padding: 5px 0;
+    }
+    button {
+      padding: 8px 16px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f0f0f0;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Zyora</h1>
-    <h2>All natural products for healthier you<h2>
+    <h2>All natural products for a healthier you</h2>
     <nav>
       <a href="#">Home</a>
       <a href="#shop">Shop</a>
@@ -82,6 +115,19 @@
     </nav>
   </header>
   
+  <!-- Cart Icon and Dropdown -->
+  <div class="cart-container">
+    <button id="cart-icon">
+      🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+  </div>
+  <div id="cart-dropdown" class="cart-dropdown">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="cart-total">0.00</span></p>
+    <button id="checkout">Checkout</button>
+  </div>
+
   <section class="section" id="shop">
     <h3>Featured Products</h3>
     <div class="products">
@@ -92,6 +138,7 @@
             Goat Milk Soaps
           </a>
         </h4>
+        <button class="add-to-cart" data-product="Goat Milk Soaps" data-price="15.00">Add to Cart</button>
       </div>
       <div class="product">
         <img src="DaisyG-blossom.png" alt="Product 2" width="200" height="100">
@@ -100,6 +147,7 @@
             Natural Body Care
           </a>
         </h4>
+        <button class="add-to-cart" data-product="Natural Body Care" data-price="20.00">Add to Cart</button>
       </div>
       <div class="product">
         <img src="DirtyBirdySoaps.jpg" alt="Product 3" width="200" height="100">
@@ -108,6 +156,7 @@
             Natural Soaps
           </a>
         </h4>
+        <button class="add-to-cart" data-product="Natural Soaps" data-price="12.00">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -126,5 +175,54 @@
   <footer>
     <p>&copy; 2025 Zyora. All rights reserved.</p>
   </footer>
+
+  <script>
+    let cart = [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartCount = document.getElementById('cart-count');
+    const cartDropdown = document.getElementById('cart-dropdown');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    // Function to update the cart display
+    function updateCart() {
+      cartCount.textContent = cart.length;
+      cartItems.innerHTML = ''; // Clear the current cart items
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+        total += parseFloat(item.price);
+      });
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    // Function to handle adding items to the cart
+    function addToCart(productName, productPrice) {
+      cart.push({ name: productName, price: productPrice });
+      updateCart();
+    }
+
+    // Show/Hide cart on icon click
+    cartIcon.addEventListener('click', () => {
+      cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Handle "Add to Cart" button clicks
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const productName = e.target.getAttribute('data-product');
+        const productPrice = e.target.getAttribute('data-price');
+        addToCart(productName, productPrice);
+      });
+    });
+
+    // Optional: Handle checkout (you can later integrate it with a payment gateway)
+    document.getElementById('checkout').addEventListener('click', () => {
+      alert('Proceeding to checkout...');
+    });
+  </script>
 </body>
 </html>
